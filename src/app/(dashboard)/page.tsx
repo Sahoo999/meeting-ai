@@ -12,7 +12,6 @@ const session = await auth.api.getSession({
 if(!session){
   redirect("/sign-in")
 }
-
   return <HomeView />
 };
 
