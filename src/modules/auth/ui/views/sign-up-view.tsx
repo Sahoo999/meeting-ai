@@ -20,8 +20,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Alert,AlertTitle } from "@/components/ui/alert";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import {FaGithub, FaGoogle} from "react-icons/fa";
+
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const formSchema= z.object({
     name: z.string().min(1, {message: "Name is required" }),
@@ -35,7 +37,8 @@ const formSchema= z.object({
 });
 
 export const SignUpView = ()=>{
-const router = useRouter();
+ const router = useRouter();
+
 const [error, setError]= useState<string | null>(null)
 const [pending, setPending] = useState(false);
 
@@ -58,11 +61,12 @@ const [pending, setPending] = useState(false);
                 name: data.name,
                 email: data.email,
                 password: data.password,
+                callbackURL: "/",
             },
             {
                 onSuccess: () =>{
                     setPending(false);
-                    router.push('/');
+                   router.push("/");
                 },
                 onError: ({error}) =>{
                     setError(error.message)
@@ -72,6 +76,26 @@ const [pending, setPending] = useState(false);
         )
     };
 
+    const onSocial= (provider: "github" | "google") =>{
+        setError(null);
+        setPending(true);
+
+        authClient.signIn.social(
+            {
+               provider: provider,
+               callbackURL: "/",
+            },
+            {
+                onSuccess: () =>{
+                    setPending(false);
+                },
+                onError: ({error}) =>{
+                    setError(error.message)
+                },
+
+            }
+        )
+    };
 
     return (
         <div className="flex flex-col gap-6">
@@ -181,19 +205,21 @@ const [pending, setPending] = useState(false);
                 <div className="grid grid-cols-2 gap-2">
                     <Button
                     disabled={pending}
+                     onClick={() => onSocial("google")}
                     variant='outline'
                     type="button"
                     className="w-full"
                     >
-                      Google
+                      <FaGoogle />
                     </Button>
                      <Button
                      disabled={pending}
+                      onClick={() => onSocial("github")}
                     variant='outline'
                     type="button"
                     className="w-full"
                     >
-                       Github
+                       <FaGithub />
                     </Button>
                 </div>
                 <div className="text-center text-sm">
@@ -206,7 +232,7 @@ const [pending, setPending] = useState(false);
             </form>
             </Form>
 
-            <div className="bg-radial from-green-700 to-green-900 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+            <div className="bg-neutral-900 from-white-800 to-white-800 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
                 <img src="logo.svg" alt="Image" className="h-[92px] w-[92px]"/>
                <p className="text-2xl font-semibold text-white">
                     Meeting.AI
