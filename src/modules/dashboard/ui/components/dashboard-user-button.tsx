@@ -83,8 +83,8 @@ export const DashboardUserButton = () => {
                     Billing
                     </Button>
                     <Button
-                    variant="outline"
-                    onClick={onLogout}
+                    variant="outline" 
+                    onClick={onLogout} 
                     >
                     <LogOutIcon className="size-4 text-black"/>
                     Logout
@@ -128,7 +128,7 @@ export const DashboardUserButton = () => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="cursor-pointer flex items-center justify-between">
-                   Billing
+                   Billing 
                    <CreditCardIcon className="size-4"/>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={onLogout} className="cursor-pointer flex items-center justify-between">
