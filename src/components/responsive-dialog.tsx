@@ -7,9 +7,6 @@ import {
     DialogTitle,
     DialogDescription,
 } from '@/components/ui/dialog';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { title } from 'process';
-import React, { Children } from 'react';
 
 import { Drawer } from "@/components/ui/drawer";
 import { DrawerContent } from "@/components/ui/drawer";
@@ -17,9 +14,8 @@ import { DrawerHeader } from "@/components/ui/drawer";
 import { DrawerTitle } from "@/components/ui/drawer";
 import { DrawerDescription } from "@/components/ui/drawer";
 
-
-export {useIsMobile} from "@/hooks/use-mobile";
-
+import { useIsMobile } from '@/hooks/use-mobile';
+import React from 'react';
 
 
 interface ResponsiveDialogProps {
