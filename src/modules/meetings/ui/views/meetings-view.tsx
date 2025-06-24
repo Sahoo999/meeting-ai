@@ -11,8 +11,8 @@ export const MeetingsView = () => {
 
 
     return (
-        <div>
-            {JSON.stringify(data)}
+        <div className="overflow-hidden">
+         {/*JSON.stringify(data)*/}
         </div>
     );
 };

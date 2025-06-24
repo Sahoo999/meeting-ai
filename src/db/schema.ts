@@ -73,19 +73,41 @@ export const meetings = pgTable("meetings", {
   id: text("id")
       .primaryKey()
       .$defaultFn(() => nanoid()),
-      name: text("name").notNull(),
-      userId: text('user_id')
+  name: text("name").notNull(),
+  userId: text('user-id')  // Match actual DB column name
       .notNull()
       .references(() => user.id, {onDelete: "cascade"}),
-      agentId: text('agent_id')
+  agentId: text('agent-id')  // Match actual DB column name  
       .notNull()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
       .references(() => agents.id, {onDelete: "cascade"}),
-      status: meetingsStatus("status").notNull().default("upcoming"),
-      startedAt: timestamp("started_at"),
-      endedAt: timestamp("ended_at"),
-      transcriptUrl: text("transcript_url"),
-      recordingUrl: text("summary"),
-      summary: text("transcript_url"),
-      createAt: timestamp("created_at").notNull().defaultNow(),
-      updateAt: timestamp("updated_at").notNull().defaultNow(),
+  status: meetingsStatus("status").notNull().default("upcoming"),
+  startedAt: timestamp("startedAt"),  
+  endedAt: timestamp("endedAt"),      
+  transcriptUrl: text("transcriptUrl"),  
+  recordingUrl: text("recordingUrl"),    
+  summary: text("summary"),              
+  createAt: timestamp("createdAt").notNull().defaultNow(),  
+  updateAt: timestamp("updatedAt").notNull().defaultNow(),
 });
