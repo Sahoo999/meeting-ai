@@ -79,28 +79,6 @@ export const meetings = pgTable("meetings", {
       .references(() => user.id, {onDelete: "cascade"}),
   agentId: text('agent-id')  // Match actual DB column name  
       .notNull()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
       .references(() => agents.id, {onDelete: "cascade"}),
   status: meetingsStatus("status").notNull().default("upcoming"),
   startedAt: timestamp("startedAt"),  
