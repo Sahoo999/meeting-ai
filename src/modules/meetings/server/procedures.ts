@@ -10,7 +10,6 @@ import { meetingsInsertSchema, meetingUpdateSchema } from "../schemas";
 import { MeetingStatus } from "../types";
 import { streamVideo } from "@/lib/stream-video";
 import { generateAvatarUri } from "@/lib/avatar";
-import { en } from "zod/v4/locales";
 
 
 export const meetingsRouter = createTRPCRouter({
@@ -91,7 +90,7 @@ export const meetingsRouter = createTRPCRouter({
            })
            .returning();
 
-           // todo: create stream call, upsert stream users
+
            const call = streamVideo.video.call("default", createdMeeting.id);
            await call.create({
             data: {
