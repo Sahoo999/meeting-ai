@@ -51,18 +51,19 @@ export const CallUI = ({ meetingName }: Props) => {
         }
     };
 
-    const handleLeave = async () => {
+   const handleLeave = async () => {
         if (!call) return;
 
         try {
-            // Leave the call first
-            await call.leave();
-            // Then end the call if you're the host
+            // Only leave if we're actually in the call
+            if (call.state.callingState === 'joined') {
+                await call.leave();
+            }
             await call.endCall();
             setShow("ended");
         } catch (error) {
             console.error("Failed to leave call:", error);
-            // Still show ended state even if there's an error
+            // Always show ended state even if there's an error
             setShow("ended");
         }
     };
