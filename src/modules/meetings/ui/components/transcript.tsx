@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {format} from "date-fns";
 import Highlighter from "react-highlight-words";
-import { useQueries, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";

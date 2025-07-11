@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Separator } from "@/components/ui/separator";
 import { cva, type VariantProps } from "class-variance-authority";
 import { CheckCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

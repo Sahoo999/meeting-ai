@@ -15,7 +15,6 @@ import {
 
 
 import "stream-chat-react/dist/css/v2/index.css";
-import { string } from "zod";
 
 
 interface ChatUIProps {

@@ -12,7 +12,6 @@ export const CallUI = ({ meetingName }: Props) => {
     const call = useCall();
     const { useCallEndedAt, useCallStartsAt } = useCallStateHooks();
     const callEndedAt = useCallEndedAt();
-    const callStartsAt = useCallStartsAt();
     
     const [show, setShow] = useState<"lobby" | "call" | "ended">("lobby");
     const [isJoining, setIsJoining] = useState(false);

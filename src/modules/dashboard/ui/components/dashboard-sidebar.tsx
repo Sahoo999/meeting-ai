@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { DashboardUserButton } from "./dashboard-user-button";
 import {DashboardTrail} from "./dashboard-trial";
+import Image from "next/image";
 
 const firstSection = [
     {
@@ -47,7 +48,7 @@ export const DashboardSidebar = () => {
         <Sidebar>
             <SidebarHeader className="text-sidebar-accent-foreground">
             <Link href="/" className="flex items-center gap-2 px-2 pt-2">
-             <img src="/logo.svg" height={36} width={36} alt="Meeting.AI" />
+             <Image src="/logo.svg" height={36} width={36} alt="Meeting.AI" />
              <p className="text-2xl font-semibold">
                 Meeting.AI
              </p>
