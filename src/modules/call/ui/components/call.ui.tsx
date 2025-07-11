@@ -10,7 +10,7 @@ interface Props {
 
 export const CallUI = ({ meetingName }: Props) => {
     const call = useCall();
-    const { useCallEndedAt, useCallStartsAt } = useCallStateHooks();
+    const { useCallEndedAt } = useCallStateHooks();
     const callEndedAt = useCallEndedAt();
     
     const [show, setShow] = useState<"lobby" | "call" | "ended">("lobby");
